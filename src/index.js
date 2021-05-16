@@ -21,17 +21,19 @@ const timer = {
         if (this.isActive) {
             return;
         }
-        this.isActive = true;
+       // this.isActive = true;
         this.intervalId = setInterval(() => {
             const min = 0;
             const max = colors.length - 1;
             let i = randomIntegerFromInterval(min, max);
   refs.body.style.backgroundColor = colors[i];
-}, 1000);
+        }, 1000);
+        refs.startBtn.disabled = true;
     },
     stop() {
         clearInterval(this.intervalId);
-        this.isActive = false;
+       // this.isActive = false;
+        refs.startBtn.disabled = false;
     }
 }
 refs.startBtn.addEventListener('click', timer.start.bind(timer));
